@@ -15,7 +15,7 @@ Build: `npm run build`. Grab constraint tests: `node --test tests/grab.test.js`.
 ## Product decisions
 
 - Child-led free collage. No command-to-auto-collage, camera, segmentation, microphone or behavioral monitoring.
-- Landscape 4:3 tablet simulator, drawing-app style dark top bar, flat icon controls. Icons retain accessible names and tooltips.
+- Landscape 4:3 tablet simulator with a cream-and-grass-green child-friendly theme, round flat icon controls and warm accent colors. Icons retain accessible names and tooltips. `src/garden.css` overrides the previous dark drawing-app shell; realistic materials and frame rendering are unchanged. The sprout assistant icon only appears inside the existing conditionally shown proposal.
 - Generated photorealistic transparent PNG materials live in `assets/real`. Original illustrated assets remain for provenance, not used by the active screen.
 - `src/grab.js`: pin the local point under the pointer and rotate the object through a damped angular response to off-center motion. Exact no-slip contact. No global physics, gravity, collisions, cloth bending or mesh deformation. Mouse/touch Pointer Events, long-press or Alt/Option to cycle overlap selection.
 - Assistant is absent until triggered. Three completed operations and 6.5 seconds of idle; no trigger during pointer interaction, dialogs or hidden page. Sixty-second cooldown after response. Current proposal provider is still local rules, not a real model.

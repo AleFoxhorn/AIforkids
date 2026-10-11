@@ -1,4 +1,5 @@
 const paths = {
+  sprout: '<path d="M12 7C6 8 3 4 4 2c5-1 8 1 8 5ZM12 7c0-5 4-7 8-5 0 4-3 6-8 5Z" fill="#8dbb50" stroke="#426044"/><path d="M4 15c0-5 3-7 8-7s8 2 8 7-3 7-8 7-8-2-8-7Z" fill="#d0e994" stroke="#426044"/><ellipse cx="9" cy="14" rx="2" ry="2.7" fill="white" stroke="none"/><ellipse cx="15" cy="14" rx="2" ry="2.7" fill="white" stroke="none"/><path d="M9 14v1m6-1v1m-5 3q2 2 4 0"/>',
   expand: '<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/>',
   minus: '<path d="M5 12h14"/>',
   gallery: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',

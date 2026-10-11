@@ -13,6 +13,7 @@ import './imports.css';
 import './tablet.css';
 import './twig-cursor.css';
 import './interaction-v2.css';
+import './garden.css';
 
 const $ = id => document.getElementById(id);
 const board = $('board');
