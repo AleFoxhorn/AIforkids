@@ -1,10 +1,17 @@
 import { materialFiles } from './artwork-store.js';
 import { preparePhoto, makeTransparentMaterial, requestMaterial } from './material-generation.js';
 import { showGenerationQuotaError } from './generation-errors.js';
+import { GENERATION_ENABLED } from './features.js';
 
 // Originals are committed before a chargeable request. Reload never retries a
 // request automatically; successful raw results can be processed without billing.
 export function setupGeneratedUploads({ button, input, controls, load, add, flash, settled }) {
+  if (!GENERATION_ENABLED) {
+    button.title = '试用版暂停生图，先玩玩内置素材';
+    button.onclick = () => flash('试用版暂未开放照片生图，可以使用内置素材自由拼贴');
+    input.disabled = true;
+    return;
+  }
   const archive = document.createElement('button'); archive.dataset.icon = 'gallery'; archive.title = '上传记录与原图'; archive.setAttribute('aria-label', archive.title); controls.append(archive);
   const status = document.createElement('p'); status.setAttribute('role', 'status'); status.style.cssText = 'font-size:13px;margin:8px 16px;max-width:320px'; status.textContent = '照片将用于云端生成，原图保存在本机'; controls.parentElement.after(status);
   const dialog = document.createElement('dialog'); dialog.setAttribute('aria-label', '上传记录与原图'); dialog.className = 'upload-archive'; document.body.append(dialog);

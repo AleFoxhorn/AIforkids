@@ -1,6 +1,6 @@
 import { Application, Assets, Sprite, Texture, Rectangle, BlurFilter } from 'pixi.js';
 import { icons } from './icons.js';
-import { localGrab, solveGrab } from './grab.js';
+import { localGrab, solveGrab, heldGrab } from './grab.js';
 import { createTwigCursor } from './twig-cursor.js';
 import { frameReady, drawFrame, drawArtRecess } from './frame.js';
 import { artworks, materialFiles } from './artwork-store.js';
@@ -24,6 +24,7 @@ import './studio-shell.css';
 import './material-upload.css';
 
 const $ = id => document.getElementById(id);
+const assistantImage = new URL('../assets/assistant/dinosaur-v1.png', import.meta.url).href;
 const board = $('board');
 const twigCursor = createTwigCursor(board);
 const aiCursor = createTwigCursor(board, true);
@@ -51,7 +52,7 @@ const history = () => { if (!histories.has(current.id)) histories.set(current.id
 function flash(message,assistant=false) {
   const box=$('boardStatus');box.replaceChildren();box.classList.toggle('assistant-feedback',assistant);
   if(assistant){
-    const avatar=document.createElement('img');avatar.src='/assets/assistant/dinosaur-v1.png';avatar.alt='小恐龙';
+    const avatar=document.createElement('img');avatar.src=assistantImage;avatar.alt='小恐龙';
     const bubble=document.createElement('span');bubble.className='speech-bubble';bubble.textContent=message;box.append(avatar,bubble);
   }else box.textContent=message;
   clearTimeout(flash.timer); flash.timer = setTimeout(() => box.replaceChildren(), assistant?5500:2800);
@@ -239,7 +240,14 @@ function pointerDown(e) {
   const m = material(p), s = scaleOf(p);
   drag = { piece: p, pointerId: e.pointerId, originIndex:pieces.indexOf(p), origin: { x: p.x, y: p.y, rotation: p.rotation }, start: q, last: q, moved: false, local: localGrab(q, { x: p.sprite.x, y: p.sprite.y }, p.rotation), inertia: ((m.crop.w * s) ** 2 + (m.crop.h * s) ** 2) / 12 };
   board.setPointerCapture(e.pointerId);
-  holdTimer = setTimeout(() => { if (drag && !drag.moved) { cycleAt(q); drag = null; twigCursor.hide(); if (board.hasPointerCapture(e.pointerId)) board.releasePointerCapture(e.pointerId); } }, 550);
+  holdTimer = setTimeout(() => {
+    if (!drag || drag.moved) return;
+    cycleAt(q);
+    if (selected && aiRun?.ids.has(selected.id)) { stopAI(); flash('你来拼'); }
+    const target=selected||drag.piece, image=material(target), scale=scaleOf(target);
+    drag=heldGrab(drag,target,q,pieces.indexOf(target),{width:image.crop.w*scale,height:image.crop.h*scale});
+    // Keep capture: moving after a long press must still drag the selected piece.
+  }, 550);
 }
 function pointerMove(e) {
   if (!drag || e.pointerId !== drag.pointerId) return;

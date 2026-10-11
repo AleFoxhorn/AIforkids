@@ -3,6 +3,14 @@ export function localGrab(pointer, center, angle) {
   const x = pointer.x - center.x, y = pointer.y - center.y;
   return { x: x * Math.cos(angle) + y * Math.sin(angle), y: -x * Math.sin(angle) + y * Math.cos(angle) };
 }
+// Holding can change the selected layer, but must not end pointer ownership.
+export function heldGrab(session, piece, pointer, originIndex, size) {
+  return { ...session, piece, originIndex,
+    origin: { x: piece.x, y: piece.y, rotation: piece.rotation },
+    start: pointer, last: pointer, moved: false,
+    local: localGrab(pointer, { x: piece.sprite.x, y: piece.sprite.y }, piece.rotation),
+    inertia: (size.width ** 2 + size.height ** 2) / 12 };
+}
 export function solveGrab(pointer, previousPointer, local, angle, inertia) {
   const cos = Math.cos(angle), sin = Math.sin(angle);
   const rx = local.x * cos - local.y * sin, ry = local.x * sin + local.y * cos;

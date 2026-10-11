@@ -1,3 +1,4 @@
+import { GENERATION_ENABLED } from '../src/features.js';
 const HOST = 'https://dashscope.aliyuncs.com';
 export function providerError(status, body = {}) {
   const code = String(body.code || body.error?.code || '').toLowerCase();
@@ -51,6 +52,7 @@ export function materialApi(key) {
     const host = req.headers.host || '';
     if (!/^(127\.0\.0\.1|localhost):\d+$/.test(host) || req.headers.origin !== `http://${host}` || req.headers['sec-fetch-site'] === 'cross-site') return send(403, { error: { code: 'forbidden', message: '仅允许本机画板发起请求。' } });
     if (req.method !== 'POST' || !req.headers['content-type']?.startsWith('application/json')) return send(405, { error: { code: 'invalid_request', message: '请求格式错误。' } });
+    if (!GENERATION_ENABLED) return send(503, { error: { code: 'generation_paused', message: '试用版生图已暂停。' } });
     if (busy) return send(409, { error: { code: 'busy', message: '已有一张照片正在生成，请稍后再试。' } });
     busy = true;
     try {

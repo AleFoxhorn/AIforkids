@@ -22,11 +22,11 @@
 
 ## 本地运行
 
-立体恐龙头像另提供 [助手素材增量包](https://github.com/AleFoxhorn/AIforkids/releases/download/materials-v1/wonderpatch-assistant-v1.zip)。解压到项目根目录得到 `assets/assistant/dinosaur-v1.png`；已有基础素材包无需重复下载。原始透明 PNG 与完整生成提示词一起保存，头像不进入代码 Git 历史。
+初始图片包现在随代码和网页一起提供：`assets/real/` 包含六件写实素材与木框纹理，`assets/assistant/` 包含恐龙头像。首次克隆不再需要额外下载；旧 Release 素材包保留作为历史备份。个人作品、上传照片和密钥不包含在初始包内。
 
-图片素材通过 `.gitignore` 排除，不随代码克隆；已单独发布到 [素材包 v1 Release](https://github.com/AleFoxhorn/AIforkids/releases/tag/materials-v1)。首次运行请单独下载 [wonderpatch-materials-v1.zip](https://github.com/AleFoxhorn/AIforkids/releases/download/materials-v1/wonderpatch-materials-v1.zip)，解压到项目根目录，得到 `assets/real/` 等目录。不要选择 GitHub 自动生成的 Source code 压缩包代替素材包。
+试用版暂停生图：`src/features.js` 的 `GENERATION_ENABLED=false` 同时关闭上传生成入口和本机生成接口。拼贴、AI 本地提案、保存与画廊不受影响；静态试用站没有模型密钥或生图服务。
 
-素材包约 13 MB，包含六件写实素材、木框纹理、早期素材和生成说明。素材未更新时只需下载一次，后续拉取代码不会删除这些本地文件。SHA-256：`b1c0bb4ee89cdc4cfdf5cdc416ce8b6d2f539c705e7e030bdc3a124fa92e6ed6`。浏览器中保存的作品不包含在素材包中。
+建议演示：新建画板，添加一次随机素材，再实际拖动并放下素材两次，收起素材库并停止操作约 6.5 秒。需要画板有空位、预置叶片和纽扣未被移出库、无弹窗且页面可见。拒绝或完成后有 60 秒冷却，需要再完成 3 次操作；不是仅触发一次。画板记忆若排除现有模板，也不会强行提案。
 
 ```bash
 npm install

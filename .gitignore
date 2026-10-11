@@ -2,14 +2,8 @@ node_modules/
 dist/
 .DS_Store
 
-# Local image materials: retain on disk, exclude from Git.
-assets/**/*.png
-assets/**/*.jpg
-assets/**/*.jpeg
-assets/**/*.webp
-assets/**/*.gif
-assets/**/*.svg
-assets/**/*.avif
+# Initial image pack ships with the application in assets/.
+# User originals remain in browser storage, never in this repository.
 
 # Local credentials and configuration
 .env
