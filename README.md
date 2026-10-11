@@ -8,7 +8,9 @@
 
 ## 本地运行
 
-图片素材仅保留在本机，已通过 `.gitignore` 排除，不随 Git 提交。新克隆的仓库须先补齐 `assets/real/` 中的 `leaf-long.png`、`leaf-round.png`、`twig.png`、`button.png`、`stone.png`、`shell.png` 和 `frame-oak-grain.png`，才能正常运行。生成说明保留在该目录的 Markdown 文件中。Git 基线不包含图片备份，也不包含浏览器里保存的作品。
+图片素材通过 `.gitignore` 排除，不随代码克隆；已单独发布到 [素材包 v1 Release](https://github.com/AleFoxhorn/AIforkids/releases/tag/materials-v1)。首次运行请单独下载 [wonderpatch-materials-v1.zip](https://github.com/AleFoxhorn/AIforkids/releases/download/materials-v1/wonderpatch-materials-v1.zip)，解压到项目根目录，得到 `assets/real/` 等目录。不要选择 GitHub 自动生成的 Source code 压缩包代替素材包。
+
+素材包约 13 MB，包含六件写实素材、木框纹理、早期素材和生成说明。素材未更新时只需下载一次，后续拉取代码不会删除这些本地文件。SHA-256：`b1c0bb4ee89cdc4cfdf5cdc416ce8b6d2f539c705e7e030bdc3a124fa92e6ed6`。浏览器中保存的作品不包含在素材包中。
 
 ```bash
 npm install

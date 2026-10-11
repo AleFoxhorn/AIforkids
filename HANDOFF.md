@@ -4,7 +4,7 @@
 
 Local checkout: `/Users/zhangxing/Documents/Codex/AIforkids`
 Remote: `https://github.com/AleFoxhorn/AIforkids`
-Initially empty repository. This snapshot is the pre-visual-redesign baseline. Image materials remain local and are ignored by Git; restore the seven PNGs listed in README before running a fresh clone. Browser-saved artworks are not part of Git. No public deployment is authorized.
+Initially empty repository. Commit `3557237` is the pre-visual-redesign baseline. Image materials are ignored by Git and distributed separately in the `materials-v1` GitHub Release; download its ZIP and extract into the checkout before running a fresh clone (see README). Browser-saved artworks are not part of Git or the asset package. No public deployment is authorized.
 
 ## Run
 
