@@ -1,0 +1,57 @@
+/* Solid-color surfaces; depth comes from soft shadows, never decorative outlines. */
+#generationQuotaDialog form{padding:0}
+#generationQuotaMessage{font-size:14px;line-height:1.8;color:#506345;margin:0 0 22px}
+:root{--soft-shadow:0 7px 18px #41602212,0 2px 5px #4160220a;--float-shadow:0 18px 42px #3b55231c,0 5px 12px #3b552310;--spring:cubic-bezier(.22,1.55,.45,1)}
+.device{border:0;border-radius:44px;box-shadow:0 10px 0 #9dbb6b,0 24px 45px #4b64341c}
+.camera{border:0}
+#app{border-radius:30px}
+.topbar{border:0;box-shadow:0 3px 9px #6381360a;z-index:2}
+.topbar button,.topbar #saveBoard{border-radius:19px}
+.topbar #galleryButton,.topbar #saveBoard{box-shadow:var(--soft-shadow)}
+.left-tools{border:0;border-radius:32px;box-shadow:var(--soft-shadow);padding:8px}
+.left-tools button{border:0;border-radius:21px}
+#materialButton,#scatterMaterials{box-shadow:0 4px 8px #657c2720}
+.divider{opacity:.08}
+.popover{border:0;border-radius:32px;box-shadow:var(--float-shadow)}
+.popover-head button{border:0;border-radius:50%;box-shadow:0 3px 8px #4562250e}
+.material-tile{border:0;border-radius:25px;box-shadow:0 3px 7px #657c2710}
+.material-tile:hover{border:0;background:#d2e7ab;box-shadow:0 5px 12px #657c2720}
+.gallery select,textarea{border:0;border-radius:20px;box-shadow:inset 0 2px 5px #49632b0c}
+.gallery-actions button,.imported-artworks button{border:0;border-radius:18px;box-shadow:var(--soft-shadow)}
+.gallery details{border:0}
+.view-controls{border:0;border-radius:28px;box-shadow:var(--soft-shadow)}
+.speech-bubble{border:0;border-radius:27px 27px 27px 12px;box-shadow:var(--float-shadow);padding:16px 18px}
+.speech-bubble::before{border:0;left:-6px;top:23px;border-radius:3px}
+.assistant-avatar{border:0;box-shadow:none;background:transparent;flex-basis:80px;width:80px;height:80px}
+.assistant-avatar img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 4px #4e663522);user-select:none;pointer-events:none}
+@media(max-width:600px){.assistant-avatar{flex-basis:60px;width:60px;height:60px}}
+.proposal-actions button,.proposal-actions button:first-child,.proposal-actions button:nth-child(2){border:0;border-radius:50%;box-shadow:0 5px 12px #54602c24}
+.copaint-controls{border:0;border-radius:26px;box-shadow:var(--float-shadow)}
+.copaint-controls button{border:0;border-radius:50%}
+.gesture-status{border:0;border-radius:24px;box-shadow:var(--soft-shadow)}
+.toast{border:0;border-radius:24px;box-shadow:var(--float-shadow)}
+dialog{border:0;border-radius:36px;box-shadow:0 25px 70px #263c2633}
+.modal-title button{border:0;border-radius:50%}
+.primary,.secondary{border:0;border-radius:24px;box-shadow:var(--soft-shadow)}
+.frame-stage{border-radius:26px}
+/* Frame swatches remain recognizable miniature frames without UI strokes. */
+.frame-choice{position:relative;border:0;outline:0;background:var(--frame);border-radius:12px;box-shadow:0 3px 8px #344d2420}
+.frame-choice::after{content:'';position:absolute;inset:7px;border-radius:5px;background:#fffbed}
+.frame-choice[aria-pressed=true]{outline:0;box-shadow:0 8px 16px #344d2436;translate:0 -4px}
+.frame-choice[aria-pressed=true]::before{content:'';position:absolute;bottom:-10px;left:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:#52783a}
+
+/* A quick squash and spring release. No perpetual motion or material movement. */
+button{transition:transform 360ms var(--spring),background-color 150ms ease,box-shadow 180ms ease,translate 360ms var(--spring);transform-origin:center}
+button:not(:disabled):active{transform:scale(.88,.92);transition-duration:75ms}
+.popover:not(.hidden){animation:soft-pop 380ms both;transform-origin:50% 100%}
+.materials:not(.hidden){animation:drawer-open 440ms both;transform-origin:50% 100%}
+.materials.expanded:not(.hidden){animation:drawer-expand 460ms both}
+.assistant-float:not(.hidden){animation:soft-pop 400ms both;transform-origin:100% 100%}
+dialog[open]{animation:soft-pop 350ms both}
+@keyframes soft-pop{0%{opacity:0;scale:.92}65%{opacity:1;scale:1.025}84%{scale:.99}100%{opacity:1;scale:1}}
+@keyframes drawer-open{0%{opacity:0;scale:.94 .84}58%{opacity:1;scale:1.015 1.04}80%{scale:.997 .988}100%{opacity:1;scale:1}}
+@keyframes drawer-expand{0%{scale:.96 .91}58%{scale:1.015 1.03}80%{scale:.995 .99}100%{scale:1}}
+/* Keep keyboard focus unmistakable: this is functional feedback, not decoration. */
+button:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #385d2c;outline-offset:4px}
+@media(max-width:600px){.device{border-radius:30px}#app{border-radius:24px}.topbar button,.topbar #saveBoard{border-radius:17px}.left-tools{border-radius:26px;padding:5px}.left-tools button{border-radius:18px}.popover{border-radius:28px}.material-tile{border-radius:22px}.speech-bubble{border-radius:24px 24px 24px 10px;padding:12px 14px}dialog{border-radius:30px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}button:not(:disabled):active{transform:none}.popover:not(.hidden),.materials:not(.hidden),.materials.expanded:not(.hidden),.assistant-float:not(.hidden),dialog[open]{animation:none}}

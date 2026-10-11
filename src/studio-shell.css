@@ -1,0 +1,25 @@
+/* Hardware is intentionally distinct from the colorful app surfaces. */
+.lifted-piece{position:fixed;z-index:10000;pointer-events:none;filter:drop-shadow(3px 9px 6px #26301c35);transform-origin:center}
+.toast{left:auto;right:24px;bottom:62px;transform:none;background:transparent;color:#405539;display:flex;align-items:flex-end;gap:6px;padding:0;box-shadow:none;max-width:min(340px,70%);text-align:left}
+.toast img{width:56px;height:64px;object-fit:contain;flex-shrink:0}
+.toast .speech-bubble{font-size:12px;line-height:1.7;background:#fffdf0;padding:12px 15px}
+.toast:not(.assistant-feedback){left:50%;right:auto;bottom:24px;transform:translateX(-50%);display:block;width:max-content;max-width:70%;padding:9px 15px;border-radius:20px;background:#eef3de;color:#506345;font-size:11px;line-height:1.6;text-align:center;box-shadow:0 4px 14px #34451f14}
+.toast:empty{display:none}
+#manageMaterials.drop-ready{background:#ffb799;transform:scale(1.16);box-shadow:0 6px 18px #bd62454a}
+.device{position:relative;z-index:1;padding:15px;border-radius:40px;background:linear-gradient(135deg,#767a7c,#272a2e 20%,#111315 75%,#65696c);box-shadow:inset 0 1px 2px #ffffff90,inset 0 -2px 2px #000,0 5px 0 #24272b,0 24px 45px #29332235}
+.device #app{border-radius:26px;box-shadow:0 0 0 3px #0e1012}
+.device .camera{background:radial-gradient(circle at 35% 30%,#32566b,#070b10 55%);box-shadow:0 0 0 2px #191d21;width:5px;height:5px;top:5px;left:50%;transform:translateX(-50%)}
+.board-picker-wrap{position:relative}
+.board-picker-wrap select{appearance:none;padding-right:42px}
+.board-picker-wrap>span{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;width:20px;height:20px}
+.board-picker-wrap svg{width:20px;height:20px}
+#deletePiece.drop-ready{background:#ffac8d;color:#773728;transform:scale(1.16);box-shadow:0 6px 18px #bd62454a}
+.materials.dragging-material{opacity:1}
+.page-friend{position:fixed;pointer-events:none;z-index:0;user-select:none}
+.page-friend.leaf-friend{width:110px;height:150px;bottom:8%;left:2%;background:#9bd740;border-radius:75% 15% 65% 25%;transform:rotate(-18deg);box-shadow:0 14px 25px #628a2820}
+.leaf-friend::before{content:'• •';position:absolute;top:54px;left:33px;font-size:30px;letter-spacing:7px;color:#294832;transform:rotate(18deg)}
+.leaf-friend::after{content:'⌣';position:absolute;top:79px;left:52px;font-size:24px;color:#294832}
+.page-friend.sun-friend{width:95px;height:95px;right:2%;top:12%;border-radius:50%;background:#ffd85b;box-shadow:0 0 0 12px #ffe99b70}
+.sun-friend::after{content:'• ◡ •';position:absolute;top:31px;left:20px;font-size:20px;color:#84602d}
+@media(max-width:1250px){.page-friend{display:none}}
+@media(max-width:600px){.device{padding:10px;border-radius:29px}.device #app{border-radius:20px}.device .camera{top:3px;width:3px;height:3px}}

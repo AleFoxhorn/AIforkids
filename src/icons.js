@@ -1,9 +1,15 @@
 const paths = {
-  sprout: '<path d="M12 7C6 8 3 4 4 2c5-1 8 1 8 5ZM12 7c0-5 4-7 8-5 0 4-3 6-8 5Z" fill="#8dbb50" stroke="#426044"/><path d="M4 15c0-5 3-7 8-7s8 2 8 7-3 7-8 7-8-2-8-7Z" fill="#d0e994" stroke="#426044"/><ellipse cx="9" cy="14" rx="2" ry="2.7" fill="white" stroke="none"/><ellipse cx="15" cy="14" rx="2" ry="2.7" fill="white" stroke="none"/><path d="M9 14v1m6-1v1m-5 3q2 2 4 0"/>',
+  'dinosaur-avatar': '<path d="m7 6-2-3 4 1 3-3 2 3 4-1-1 4" fill="#ffc946" stroke="#37552b" stroke-width=".8"/><path d="M4 12C4 5 7 4 12 4s8 2 8 8v4c0 5-16 5-16 0Z" fill="#81c849" stroke="#37552b" stroke-width=".9"/><ellipse cx="9" cy="10.5" rx="2.5" ry="3.2" fill="#fffef2" stroke="none"/><ellipse cx="15" cy="10.5" rx="2.5" ry="3.2" fill="#fffef2" stroke="none"/><ellipse cx="9.5" cy="11" rx="1.1" ry="1.8" fill="#223e2a" stroke="none"/><ellipse cx="14.5" cy="11" rx="1.1" ry="1.8" fill="#223e2a" stroke="none"/><path d="M3 15c0-4 18-4 18 0v2c0 6-18 6-18 0Z" fill="#b4e26d" stroke="#37552b" stroke-width=".9"/><circle cx="8" cy="15" r=".6" fill="#37552b" stroke="none"/><circle cx="16" cy="15" r=".6" fill="#37552b" stroke="none"/><path d="M9 18q3 2.4 6 0" stroke="#37552b" stroke-width="1"/><ellipse cx="5.5" cy="17" rx="1.3" ry=".7" fill="#f5ac85" stroke="none"/><ellipse cx="18.5" cy="17" rx="1.3" ry=".7" fill="#f5ac85" stroke="none"/>',
+  dinosaur: '<path d="m7 5-3-1 1 4-3 1 3 3-3 2 4 2" fill="#f5d67e" stroke="#4b683e" stroke-width="1"/><path d="M8 21C4 22 1 20 1 16q3 3 5-2V8q0-5 6-5 5 0 5 4h3q3 0 3 4t-7 3v4q2 1 1 3h-4l-1-2h-2v2Z" fill="#b9dc83" stroke="#426044" stroke-width="1.2"/><path d="M10 14q5 0 4 5h-4Z" fill="#edf2c0" stroke="none"/><ellipse cx="12" cy="7.5" rx="2.3" ry="2.8" fill="#fffdf0" stroke="none"/><ellipse cx="12.7" cy="8" rx=".9" ry="1.4" fill="#304c35" stroke="none"/><circle cx="20" cy="9.5" r=".65" fill="#426044" stroke="none"/><path d="M18 12q2 1 3-.5M14 15l2 1" stroke="#426044" stroke-width="1"/><ellipse cx="16" cy="11" rx="1.3" ry=".8" fill="#efb399" stroke="none"/>',
   expand: '<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/>',
+  exhibition: '<rect x="4" y="3" width="16" height="17" rx="2"/><path d="M4 12h16M12 3v9M7 20v2M17 20v2M10 16h4"/><path d="M9 7v2m6-2v2"/>',
+  contract: '<path d="M4 9h5V4M15 4v5h5M20 15h-5v5M9 20v-5H4"/>',
   minus: '<path d="M5 12h14"/>',
   gallery: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
-  materials: '<path d="m3 8 9-5 9 5-9 5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>',
+  materials: '<path d="M3 7V4h6l3 3h9v14H3Z"/><path d="M9 17c-2-5 2-7 7-7 0 5-2 8-7 7Zm-1 2 6-6"/>',
+  upload: '<path d="M12 16V3m-4 4 4-4 4 4M4 15v6h16v-6"/>',
+  chevron: '<path d="m6 9 6 6 6-6"/>',
+  microphone: '<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/>',
   scatter: '<path d="m4 4 4 1-1 4-4-1ZM14 14l6-1 1 6-6 1Z"/><circle cx="17" cy="6" r="3"/><path d="M5 15v6M2 18h6M12 10v3M10.5 11.5h3"/>',
   leaf: '<path d="M5 19C-1 8 9 3 21 3c0 12-7 20-16 16ZM3 21 16 8"/>',
   undo: '<path d="m8 4-5 5 5 5M3 9h11a7 7 0 0 1 0 14"/>',
@@ -21,6 +27,7 @@ const paths = {
 };
 export function icons(root = document) {
   root.querySelectorAll('[data-icon]').forEach(el => {
-    el.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[el.dataset.icon] || ''}</svg>`;
+    setIcon(el,el.dataset.icon);
   });
 }
+export function setIcon(el,name){el.dataset.icon=name;el.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name] || ''}</svg>`;}

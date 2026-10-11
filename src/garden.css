@@ -43,7 +43,7 @@ button:disabled{opacity:.34}
 .material-tile:nth-child(3n){background:#e5eedf}
 .material-tile:hover{background:#e0edc4;border-color:#b7ce8e}
 .materials.expanded{width:min(520px,calc(100% - 32px))}
-.materials.expanded .material-tray{max-height:180px}
+.materials.expanded .material-tray{max-height:300px}
 .gallery{width:280px;max-width:calc(100% - 24px)}
 .gallery select{font-size:14px;border-radius:14px;background:#f0f4df;border-color:#d7e3b9;color:#3e5938;min-height:44px}
 .gallery-actions button{width:44px;height:44px;border-radius:14px;background:#edf3dc}
@@ -83,3 +83,37 @@ textarea{background:#f5f6e8;border:2px solid #dce5c6;border-radius:17px;color:#3
 @media(max-width:900px){.device{padding:12px;border-radius:30px}#app{border-radius:20px}.topbar{height:60px;padding:0 10px;gap:7px}.left-tools{left:10px;padding:5px}.left-tools button{width:44px;height:44px}.topbar .title-button{font-size:12px}}
 @media(max-width:600px){body{padding:16px 8px}.preview-heading>span:first-child{font-size:20px}.device{padding:9px;border-radius:24px}.topbar{height:52px;gap:2px;padding:0 5px}.topbar button{width:40px;height:44px;border-radius:14px}.toolbar-group{gap:0}.toolbar-group .divider{margin:0 2px}.topbar .title-button{padding:0 2px;font-size:11px}.title-button span:first-child{max-width:76px}.left-tools{left:6px;padding:3px;gap:3px;border-radius:19px}.left-tools button{width:40px;height:40px;border-radius:14px}.materials{bottom:12px;max-height:82%;padding:8px 12px}.popover-head{min-height:36px;font-size:12px}.popover-head button{width:36px;height:36px}.materials.expanded .material-tray{max-height:120px}.bottom-caption{left:14px;right:10px;bottom:10px}.bottom-caption>span:not(.sr-only){display:none}.view-controls{margin-left:auto}.bottom-caption .view-controls button{width:34px;height:34px}.assistant-float{right:10px;bottom:60px;max-width:280px;padding:12px}.proposal-body p{font-size:12px}.assistant-spark{flex-basis:36px}.assistant-spark svg{width:36px;height:36px}}
 @media(prefers-reduced-motion:reduce){button{transition:none}button:not(:disabled):active{transform:none}}
+
+/* Brighter tools, narrower header, and an avatar with independent speech/actions. */
+.materials.expanded .material-tray{max-height:300px}
+.materials .popover-head{flex-shrink:0}
+:root{--grass:#b2df55;--peach:#ffa77c}
+body{background:#e2f1ba}
+.device{background:#b4d77d;border-color:#9cbd62;padding:10px 14px 14px;box-shadow:0 9px 0 #9dbb6b,0 20px 40px #4b64341a}
+.topbar{height:52px;background:#c9e88b;border-bottom-color:#b7d877;padding:0 12px}
+.topbar button{height:44px;width:44px;border-radius:14px}
+.topbar .title-button{width:auto}
+.left-tools{background:#e6f1ca;border-color:#ccdfa0}
+#materialButton{background:#b6df66}
+#materialButton:hover,#materialButton[aria-expanded=true]{background:#a1d34b}
+#scatterMaterials{background:#ffda58;color:#62491c}
+#scatterMaterials:hover{background:#ffcd35}
+#saveBoard:hover{background:#fa9362}
+.popover{border-color:#c5dc94}
+.materials .popover-head{justify-content:flex-end;margin-bottom:2px}
+.material-tile{background:#e0edbd}
+.material-tile:nth-child(3n+2){background:#f8e6ad}
+.material-tile:nth-child(3n){background:#d7e9c7}
+.view-controls{background:#e0edbd;border-color:#c9dc9e}
+.assistant-float{display:flex;align-items:flex-start;max-width:340px;padding:0;gap:12px;border:0;background:transparent;box-shadow:none;border-radius:0;pointer-events:none}
+.assistant-avatar{display:grid;place-items:center;flex:0 0 60px;width:60px;height:60px;border-radius:50%;background:#ffdf78;border:2px solid #f9f5df;box-shadow:0 3px 0 #8fae4f33}
+.assistant-avatar svg{width:52px;height:52px}
+.proposal-body{min-width:0;flex:1}
+.speech-bubble{position:relative;background:#fffef5;border:2px solid #bed682;border-radius:20px 20px 20px 6px;padding:13px 15px;pointer-events:auto;box-shadow:0 4px 12px #45632b0c}
+.speech-bubble::before{content:'';position:absolute;left:-8px;top:22px;width:12px;height:12px;background:#fffef5;border-left:2px solid #bed682;border-bottom:2px solid #bed682;transform:rotate(45deg)}
+.proposal-actions{margin-top:10px;gap:10px;pointer-events:auto}
+.proposal-actions button{width:46px;height:44px;border-radius:15px;border:1px solid #c5d7a4;background:#e9f1d7;color:#405b2d;box-shadow:0 3px 0 #97ad6d33}
+.proposal-actions button:first-child{background:#b6df66;color:#304d24;border-color:#a3c851}
+.proposal-actions button:nth-child(2){background:#ffbc97;color:#653e27;border-color:#ecaa83}
+.primary{background:#b6df66}
+@media(max-width:600px){.device{padding:7px 9px 9px}.topbar{height:48px;padding:0 5px}.topbar button{width:38px;height:40px}.topbar .title-button{width:auto}.assistant-float{max-width:min(300px,calc(100% - 70px));padding:0;gap:9px}.assistant-avatar{width:48px;height:48px;flex-basis:48px}.assistant-avatar svg{width:43px;height:43px}.speech-bubble{padding:10px 12px}.proposal-actions{gap:8px}}

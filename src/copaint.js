@@ -1,4 +1,4 @@
-export const CO_PAINT_PROMPT = '我可以用两片叶子和一颗纽扣，拼个小伙伴吗？';
+export const CO_PAINT_PROMPT = '我想用两片叶子和一颗纽扣拼一只小鸟，可以加入这里吗？';
 
 export function bounds(p, materials, aspect) {
   const m = materials.find(m => m.id === p.materialId);
@@ -7,11 +7,11 @@ export function bounds(p, materials, aspect) {
   return { x: p.x, y: p.y, w: w*c+h*s, h: (w*s+h*c)*aspect };
 }
 const overlaps = (a,b) => Math.abs(a.x-b.x) < (a.w+b.w)/2+.025 && Math.abs(a.y-b.y) < (a.h+b.h)/2+.035;
-export function planCompanion(pieces, materials, aspect) {
+export function planCompanion(pieces, materials, aspect,kind='bird') {
   const occupied = pieces.map(p => bounds(p, materials, aspect));
   for (const y of [.22,.38,.55,.74]) for (const x of [.75,.5,.29]) {
     const plan = [
-      { materialId:'leaf-long', x:x-.065, y:y+.006*aspect, rotation:-.35, scale:.48 },
+      { materialId:'leaf-long', x:x-.065, y:y+.006*aspect, rotation:kind==='fish'?.45:-.8, scale:.48 },
       { materialId:'leaf-round', x:x+.025, y, rotation:-.7, scale:.68 },
       { materialId:'button', x:x+.055, y:y-.005*aspect, rotation:0, scale:.28 },
     ];
