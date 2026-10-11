@@ -1,0 +1,18 @@
+.device{overscroll-behavior:contain;touch-action:none}
+.board{overflow:hidden}
+.materials{left:50%;top:auto;bottom:24px;transform:translateX(-50%);width:min(390px,calc(100% - 32px));padding:12px;max-height:65%;}
+.materials .popover-head{margin-bottom:7px}
+.drawer-controls{display:flex;gap:6px}
+.materials .material-tray{display:flex;overflow-x:auto;overflow-y:hidden;gap:9px;touch-action:none;overscroll-behavior:contain;scrollbar-width:thin;padding:5px 2px 10px;cursor:grab}
+.materials .material-tile{width:94px;height:88px;flex:0 0 94px;user-select:none}
+.materials .material-tile img{user-select:none;-webkit-user-drag:none}
+.materials.expanded{width:min(520px,calc(100% - 32px))}
+.materials.expanded .material-tray{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:hidden;overflow-y:auto;max-height:170px}
+.materials.expanded .material-tile{width:100%;height:104px}
+.material-drag-ghost{position:fixed;width:90px;height:90px;object-fit:contain;transform:translate(-50%,-50%);pointer-events:none;z-index:50;filter:drop-shadow(3px 8px 4px #24301833)}
+.view-controls{display:flex;align-items:center;gap:5px;pointer-events:auto}
+.bottom-caption .view-controls button{width:34px;height:34px}
+.view-controls #fitView{width:auto;min-width:44px;font-size:10px;letter-spacing:0}
+.gesture-status{position:absolute;left:50%;top:16px;transform:translateX(-50%);padding:6px 10px;border-radius:20px;background:#ffffffde;font-size:11px;color:#687257;z-index:4;pointer-events:none}
+.canvas-piece{visibility:hidden}
+@media(max-width:600px){.materials .material-tile{width:78px;flex-basis:78px;height:78px}.materials.expanded .material-tile{height:88px}}

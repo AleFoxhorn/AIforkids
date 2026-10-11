@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>WonderPatch · 拼贴工作室</title></head>
+<body>
+  <div class="preview-heading"><span>WonderPatch <b>studio</b></span><span>平板预览 · 4:3</span></div>
+  <div class="device"><i class="camera" aria-hidden="true"></i><main id="app">
+    <header class="topbar">
+      <button id="galleryButton" data-icon="gallery" aria-label="作品集" title="作品集"></button>
+      <button id="renameBoard" class="title-button" aria-label="修改画板名称"><span id="boardName">我的新画板</span><span class="saved-dot" id="saveIndicator"></span></button>
+      <div class="toolbar-group"><button id="undoButton" data-icon="undo" aria-label="撤销" title="撤销"></button><button id="redoButton" data-icon="redo" aria-label="重做" title="重做"></button><span class="divider"></span><button id="saveBoard" data-icon="frame" aria-label="保存与装裱" title="保存与装裱"></button></div>
+    </header>
+    <section class="studio">
+      <div id="board" class="board" tabindex="0" aria-label="拼贴画布"><div id="boardEmpty" class="board-empty"><span data-icon="leaf"></span><p>捡一片小小的灵感</p></div></div>
+      <div class="left-tools"><button id="materialButton" data-icon="materials" aria-label="素材盒" title="素材盒" aria-expanded="false"></button><button id="scatterMaterials" data-icon="scatter" aria-label="随机取材" title="随机取材"></button><span class="divider"></span><button id="deletePiece" data-icon="trash" aria-label="移除选中素材" title="移除选中素材"></button></div>
+      <aside id="materialPanel" class="popover materials hidden"><div class="popover-head"><span>素材</span><div class="drawer-controls"><button id="expandMaterials" data-icon="expand" aria-label="展开素材库" aria-expanded="false" title="展开素材库"></button><button data-close="materialPanel" data-icon="close" aria-label="关闭素材盒"></button></div></div><div id="materialTray" class="material-tray"></div></aside>
+      <aside id="galleryPanel" class="popover gallery hidden"><div class="popover-head"><span>作品集</span><button data-close="galleryPanel" data-icon="close" aria-label="关闭作品集"></button></div><select id="boardPicker" aria-label="打开已保存的画板"></select><div class="gallery-actions"><button id="importArtwork" data-icon="share" aria-label="导入作品图片" title="导入作品图片"></button><button id="newBoard" data-icon="plus" aria-label="新画板" title="新画板"></button><button id="clearBoard" data-icon="trash" aria-label="清空画板" title="清空画板"></button></div><input id="artworkFile" type="file" accept="image/png,image/jpeg,image/webp" hidden><div id="importedArtworks" class="imported-artworks" aria-label="已导入作品"></div><details><summary>画板记忆</summary><p id="memoryText"></p></details></aside>
+      <aside id="proposalCard" class="assistant-float hidden" aria-live="polite"><span class="assistant-spark" data-icon="spark"></span><div class="proposal-body"><p id="proposalText"></p><div class="proposal-actions"><button id="acceptProposal" data-icon="check" aria-label="接受建议" title="可以"></button><button id="rejectProposal" data-icon="close" aria-label="拒绝建议" title="不要"></button><button id="correctProposal" data-icon="message" aria-label="纠正建议" title="告诉我哪里不对"></button></div></div></aside>
+      <div id="copaintControls" class="copaint-controls hidden"><span id="copaintProgress" role="status" aria-label="助手拼贴进度">1 / 3</span><button id="stopCopaint" data-icon="close" aria-label="停止助手拼贴" title="停止助手拼贴"></button></div>
+      <div id="boardStatus" class="toast" role="status"></div>
+      <div class="bottom-caption"><span id="saveState" class="sr-only"></span><span>WONDERPATCH</span><div class="view-controls"><button id="zoomOut" data-icon="minus" aria-label="缩小选中素材或画布" title="缩小"></button><button id="fitView" aria-label="画布适合画面" title="画布适合画面">100%</button><button id="zoomIn" data-icon="plus" aria-label="放大选中素材或画布" title="放大"></button><button id="helpButton" data-icon="help" aria-label="操作提示" title="操作提示"></button></div></div>
+      <div id="gestureStatus" class="gesture-status hidden" role="status"></div>
+    </section>
+    <div class="home-indicator" aria-hidden="true"></div>
+    <dialog id="feedbackDialog"><form method="dialog"><div class="modal-title"><h2>哪里不一样？</h2><button value="cancel" data-icon="close" aria-label="关闭"></button></div><textarea id="feedbackInput" rows="3" maxlength="500" aria-label="纠正内容" placeholder="这里其实是……"></textarea><button id="submitFeedback" class="primary">记住了</button></form></dialog>
+    <dialog id="frameDialog"><div class="modal-title"><h2>给想象一个画框</h2><button id="closeFrame" data-icon="close" aria-label="关闭装裱"></button></div><div class="frame-stage"><canvas id="framePreview" width="1000" height="800" aria-label="装裱预览"></canvas></div><div id="frameChoices" class="frame-choices" aria-label="选择画框"></div><div class="save-actions"><button id="confirmSave" class="primary"><span data-icon="download"></span>保存</button><button id="shareArtwork" class="secondary"><span data-icon="share"></span>分享</button></div><p id="exportStatus" class="export-status" role="status">作品会保存在本机</p></dialog>
+  </main></div>
+  <div class="preview-foot"><span>收集一点世界，拼出你的想象。</span><span>本地原型</span></div>
+  <script type="module" src="/src/app.js"></script>
+</body></html>

@@ -1,0 +1,4 @@
+.imported-artworks{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-height:180px;overflow:auto;margin-bottom:12px}
+.imported-artworks:empty{display:none}
+.imported-artworks button{height:66px;background:#efeee7;border-radius:5px;padding:5px;overflow:hidden}
+.imported-artworks img{width:100%;height:100%;object-fit:contain}

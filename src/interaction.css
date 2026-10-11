@@ -1,0 +1,19 @@
+.pixi-layer{position:absolute;inset:0;pointer-events:none;filter:drop-shadow(0 5px 4px #473f2c20)}
+.board{touch-action:none;cursor:grab;isolation:isolate}
+.board.is-dragging{cursor:grabbing}
+.canvas-piece{pointer-events:none;z-index:2;filter:none;transition:none}
+.piece-ring{border-radius:18px;border:1.5px dashed #519778;inset:-5px}
+.material-tray{grid-template-columns:repeat(2,minmax(0,1fr))}.material-tile{min-width:0;padding:4px}.material-tile img{max-width:100%;object-fit:contain}
+.board-empty{z-index:1}
+#boardPicker{max-width:150px;border:1px solid #e6e1d8;border-radius:10px;background:#fcfaf6;padding:9px;color:#656d7e;font:inherit;font-size:12px}
+.board-title{position:static;transform:none;max-width:30%;overflow:hidden}
+#boardName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+button:focus-visible,select:focus-visible,.board:focus-visible{outline:2px solid #569b7c;outline-offset:3px}
+.memory-card p{overflow-wrap:anywhere}
+body{min-width:360px}
+.workspace{grid-template-columns:210px minmax(300px,1fr) 245px}
+.board-footer{gap:12px;line-height:1.7}
+.assistant-head{flex-wrap:wrap}
+.assistant-copy:after{content:' 本地演示：提案由预设规则触发。';display:block;margin-top:8px;font-size:10px;color:#a2a5a4}
+@media(max-width:1150px){.workspace{grid-template-columns:180px minmax(300px,1fr)}.assistant-panel{grid-column:1/-1;display:flex;align-items:flex-start;gap:20px}.assistant-head{min-width:160px}.assistant-copy{max-width:240px;margin:0}.proposal-card{margin:0;max-width:280px}.memory-card{margin:0;padding:0;border:0;max-width:220px}.board{min-height:520px}.topbar{padding:0 20px}.top-actions{gap:10px}}
+@media(max-width:720px){.topbar{height:auto;min-height:76px;flex-wrap:wrap;gap:12px;padding:16px}.brand{font-size:15px}.board-title{max-width:45%}.top-actions{width:100%;justify-content:flex-end}.workspace{display:flex;flex-direction:column;padding:12px;gap:12px}.materials-panel{padding:12px}.materials-panel .helper,.tray-note,.material-count{display:none}.panel-heading{display:none}.material-tray{grid-template-columns:repeat(6,1fr);gap:5px}.material-tile{height:65px}.material-tile img{max-width:90%;max-height:55px}.materials-panel>.secondary-button{margin-top:10px}.board{min-height:480px}.assistant-panel{flex-wrap:wrap;padding:16px}.board-footer{flex-direction:column;gap:2px}.assistant-copy{max-width:none}.assistant-head{flex-wrap:nowrap}.memory-card{max-width:none}.proposal-card{width:100%;max-width:none}#boardPicker{max-width:140px}}

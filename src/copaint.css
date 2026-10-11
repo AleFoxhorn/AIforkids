@@ -1,0 +1,4 @@
+.twig-cursor.ai-twig{z-index:7;filter:drop-shadow(2px 3px 2px #33261230)}
+.ai-twig::after{content:'✦';position:absolute;left:37px;top:47px;font-size:15px;color:#61794b;background:#eff2e6;border-radius:50%;width:20px;height:20px;text-align:center}
+.copaint-controls{position:absolute;right:24px;bottom:55px;z-index:6;display:flex;align-items:center;gap:8px;padding:6px 8px 6px 12px;background:#fdfcf6;border:1px solid #e2e2d1;border-radius:12px;font-size:11px;color:#737c65}
+.copaint-controls button{height:42px;width:42px;border-radius:7px;background:#eeefe5}
